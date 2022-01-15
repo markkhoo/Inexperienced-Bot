@@ -1,0 +1,29 @@
+{
+  "name": "inexperienced-bot",
+  "version": "1.0.0",
+  "description": "InexperiencedStreamer's Twitch Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "watch": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markkhoo/Inexperienced-Bot.git"
+  },
+  "keywords": [
+    "Twitch"
+  ],
+  "author": "Mark Khoo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/markkhoo/Inexperienced-Bot/issues"
+  },
+  "homepage": "https://github.com/markkhoo/Inexperienced-Bot#readme",
+  "dependencies": {
+    "dotenv": "^11.0.0",
+    "nodemon": "^2.0.15",
+    "tmi.js": "^1.8.5"
+  }
+}
