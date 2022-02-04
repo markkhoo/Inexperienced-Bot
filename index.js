@@ -23,11 +23,10 @@ client.connect();
 function onMessageHandler(target, context, msg, self) {
   if (self) { return; } // Ignore messages from the bot
 
+  const commandWholeText = msg.trim().split(" ");
   const commandFirstItem = msg.trim().split(" ", 1);
   const commandName = commandFirstItem[0];
   const commandText = msg.trim().slice(commandName.length).trim();
-
-  // console.log(`Command: ${commandName}\n   Text: ${commandText}`);
 
   if (commandName === '!dice') {
     client.say(target, `You rolled a ${rollDice()}`);
@@ -37,10 +36,13 @@ function onMessageHandler(target, context, msg, self) {
   }
   if (commandName === `!say`) {
     if (commandText.length > 0) {
-      client.say(target, `@${context.username} said, "${commandText}"`);
+      client.say(target, `@${context.username} said, " ${commandText} "`);
     } else {
       client.say(target, `@${context.username}, Do you want me to say anything?`);
     }
+  }
+  if (commandName === `!so` && commandWholeText[1]) {
+    client.say(target, `Ookie Kabookie ${commandWholeText[1]}`);
   }
   if (commandName === `!twitter`) {
     client.say(target, `don't ratio me pls ${process.env.DB_TWITTER}`);
