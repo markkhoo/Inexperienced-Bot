@@ -24,9 +24,8 @@ function onMessageHandler(target, context, msg, self) {
   if (self) { return; } // Ignore messages from the bot
 
   const commandWholeText = msg.trim().split(" ");
-  const commandFirstItem = msg.trim().split(" ", 1);
-  const commandName = commandFirstItem[0];
-  const commandText = msg.trim().slice(commandName.length).trim();
+  const commandName = commandWholeText[0];
+  // const commandText = msg.trim().slice(commandName.length).trim();
 
   if (commandName === '!dice') {
     client.say(target, `You rolled a ${rollDice()}`);
@@ -34,15 +33,20 @@ function onMessageHandler(target, context, msg, self) {
   if (commandName === `!discord`) {
     client.say(target, `join the discord: ${process.env.DB_DISCORD}`);
   }
-  if (commandName === `!say`) {
-    if (commandText.length > 0) {
-      client.say(target, `@${context.username} said, " ${commandText} "`);
-    } else {
-      client.say(target, `@${context.username}, Do you want me to say anything?`);
-    }
+  if (commandName === `!nft`) {
+    client.say(target, `I'm working with an amazing team producing unique "TCG" collectables. Watch this video to learn how to play! https://www.youtube.com/watch?v=j5a0jTc9S10 Collect packs and battle others!`);
   }
+  // if (commandName === `!say`) {
+  //   if (commandText.length > 0) {
+  //     client.say(target, `@${context.username} said, " ${commandText} "`);
+  //   } else {
+  //     client.say(target, `@${context.username}, Do you want me to say anything?`);
+  //   }
+  // }
   if (commandName === `!so` && commandWholeText[1]) {
-    client.say(target, `Ookie Kabookie ${commandWholeText[1]}`);
+    if (commandWholeText[1].includes('@')) {
+      client.say(target, `Shoutout ${commandWholeText[1]}`);
+    }
   }
   if (commandName === `!twitter`) {
     client.say(target, `don't ratio me pls ${process.env.DB_TWITTER}`);
